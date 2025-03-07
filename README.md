@@ -1,1 +1,1 @@
-# recipe_regression
+# Predicting Recipe Ratings by Protein Content
