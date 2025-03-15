@@ -27,11 +27,6 @@ To clean the dataset, I first merged the two datasets to make working with the d
       <th>average_ratings</th>
       <th>calories</th>
       <th>protein</th>
-      <th>protein_range</th>
-      <th>rating_missing</th>
-      <th>protein_proportion</th>
-      <th>ratings_missing</th>
-      <th>protein_log</th>
     </tr>
   </thead>
   <tbody>
@@ -43,11 +38,6 @@ To clean the dataset, I first merged the two datasets to make working with the d
       <td>4.0</td>
       <td>138.4</td>
       <td>3.0</td>
-      <td>0-10</td>
-      <td>0</td>
-      <td>0.09</td>
-      <td>0</td>
-      <td>1.39</td>
     </tr>
     <tr>
       <td>45</td>
@@ -57,11 +47,6 @@ To clean the dataset, I first merged the two datasets to make working with the d
       <td>5.0</td>
       <td>595.1</td>
       <td>13.0</td>
-      <td>10-50</td>
-      <td>0</td>
-      <td>0.09</td>
-      <td>0</td>
-      <td>2.64</td>
     </tr>
     <tr>
       <td>40</td>
@@ -71,11 +56,6 @@ To clean the dataset, I first merged the two datasets to make working with the d
       <td>5.0</td>
       <td>194.8</td>
       <td>22.0</td>
-      <td>10-50</td>
-      <td>0</td>
-      <td>0.45</td>
-      <td>0</td>
-      <td>3.14</td>
     </tr>
     <tr>
       <td>40</td>
@@ -85,11 +65,6 @@ To clean the dataset, I first merged the two datasets to make working with the d
       <td>5.0</td>
       <td>194.8</td>
       <td>22.0</td>
-      <td>10-50</td>
-      <td>0</td>
-      <td>0.45</td>
-      <td>0</td>
-      <td>3.14</td>
     </tr>
     <tr>
       <td>40</td>
@@ -99,11 +74,6 @@ To clean the dataset, I first merged the two datasets to make working with the d
       <td>5.0</td>
       <td>194.8</td>
       <td>22.0</td>
-      <td>10-50</td>
-      <td>0</td>
-      <td>0.45</td>
-      <td>0</td>
-      <td>3.14</td>
     </tr>
   </tbody>
 </table>
