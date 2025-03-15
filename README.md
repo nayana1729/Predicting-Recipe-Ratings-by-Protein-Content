@@ -105,7 +105,9 @@ Test Statistic: The difference in means of minutes between the group with missin
 Significance Level: 0.05  
 
 Outcome:
-<iframe src="assets/rating_missing_vs_minutes.html" width="100%" height="800px"></iframe>
+<div style="width: 100%; overflow-x: auto;">
+    <img src="assets/rating_missing_vs_minutes.html" width="100%" />
+</div>
 
 The observed test statistic came out to be 51.4 and after running the permutation test, the p-value came out to be 0.119 which means we will fail to reject the null hypothesis. Thus, we can understand that the missingness of rating is not dependent on the minutes the recipe takes.
 
