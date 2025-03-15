@@ -33,9 +33,65 @@ From this box plot, we can observe that a higher protein content means a higher 
 I wanted to explore protein content and rating further by creating a range for protein and observing the average rating for those ranges. Interestingly, these averages are incredibly different from the plot relationship as the highest rating occurs for the protein range 400-500, however, the second highest is for the protein range 0-10. This shows that there may be other factors at play.
 
 ## Assessment of Missingness
+I believe that the column 'description' is NMAR. This is because a user-provided description might be missing as a result of the user not wanting to provide a full-blown description perhaps due to feeling indifferent to the particular recipe. Moreover, for recipes with more steps or more time taken, these might require longer descriptions which may be difficult to obtain from every user. If we could obtain data about the number of steps and the minutes for the recipes, this can help us make the missingness of the description MAR.
 
-Hypothesis Testing
-Framing a Prediction Problem
-Baseline Model
-Final Model
-Fairness Analysis
+Investigation of Rating and Minutes:
+I was curious to see how the missingness of rating was related to minutes and decided to explore that through a permutation test. 
+
+Null Hypothesis: The missingness of ratings does not depend on the minutes of the recipe.  
+Alternate Hypothesis: The missingness of ratings does depend on the minutes of the recipe.  
+Test Statistic: The difference in means of minutes between the group with missing ratings and the group without missing ratings.  
+Significance Level: 0.05  
+
+Outcome:
+<iframe src="assets/rating_missing_vs_minutes.html" width="100%" height="600px"></iframe>
+
+The observed test statistic came out to be 51.4 and after running the permutation test, the p-value came out to be 0.119 which means we will fail to reject the null hypothesis. Thus, we can understand that the missingness of rating is not dependent on the minutes the recipe takes.
+
+Investigation of Rating and Protein Proportion:
+I wanted to explore the missingness of rating and its relationship with protein proportion as a proportion of calories and decided to explore that through a permutation test. 
+
+Null Hypothesis: The missingness of ratings does not depend on the protein proportion of the recipe.  
+Alternate Hypothesis: The missingness of ratings does depend on the protein proportion of the recipe.  
+Test Statistic: The difference in means of protein proportions between the group with missing ratings and the group without missing ratings.  
+Significance Level: 0.05  
+
+Outcome:
+<iframe src="assets/rating_missing_vs_protein.html" width="100%" height="600px"></iframe>
+
+The observed test statistic came out to be -0.007 and after running the permutation test, the p-value came out to be 0.0 which means we reject the null hypothesis. Thus, we can understand that the missingness of rating is dependent on the protein proportion of a recipe.
+
+## Hypothesis Testing
+Since we are exploring the relationship between protein content and ratings, I wanted to perform a permutation test regarding the same. In particular, I want to see if there is a difference in the ratings between high protein recipes and low protein recipes.
+
+Null Hypothesis: There is no statistically significant difference in the ratings between high-protein and low-protein recipes.
+
+Alternative Hypothesis: There is a statistically significant difference in the ratings between high-protein and low-protein recipes.
+
+Test Statistic: Difference in rating means between high protein and low protein.
+
+Significance Level: 0.05
+
+I decided to set a threshold of 20 grams of protein to form groups of low and high. The reason I chose a permutation test is because we can test the actual observed difference from the data against a null distribution from shuffling. Moreover, we have two samples: ratings for high protein foods and ratings for low protein foods and we can use a permutation test to see if they come from the same population. The difference in means is suitable as a test statistic for this because we can observe which group has the higher average rating.
+
+The observed difference in mean ratings was -0.02 which means the ratings for low-protein are higher on average and the p-value was 0.0, and thus we reject the null hypothesis. The higher ratings for low-protein foods may be due to taste.
+
+## Framing a Prediction Problem
+I want to predict the calories of a recipe which is a regression problem because the model will predict a continuous numerical value. I decided to choose calories as my response variable because I was interested in the nutritious aspect of this dataset and wanted to build a model that can predict the calories of recipes for people wanting to eat healthier. I decided to use RMSE as the metric to evaluate my model because it is suitable for this regression model and RMSE penalizes large errors more than small errors which is important for this model as large deviations can be misleading.
+
+## Baseline Model
+For my baseline model, I decided to use number of words in description and minutes taken as my features to predict the calories of a recipe. Number of words in description is quantitative and minutes is quantitative. I utilized a linear regression for this model and standardized minutes through StandardScaler to ensure that the model is easy to interpret because minutes is continuous whereas number of words in description is discrete. The RMSE is 552 for this model, which is quite high and thus not a very good model. With more features, the model can be better trained.
+
+## Final Model
+For my final model, I decided to add rating and protein content on top of the previously mentioned features. Moreover, I decided to log transform protein content due to the skew discovered previously for a better interpretation. These features are good for the data and prediction task because protein content is related to calories because a higher protein content leads to a higher number of calories. Rating is also related to calories because a higher rating might mean higher number of calories due to people enjoying calorically dense foods. Thus, these features allows the model to better predict calories of recipes. I decided to choose RandomForestRegressor because it utilizes multiple decision trees to improve prediction accuracy. I used GridSearchCV to tune the hyperparameters I chose which were n_estimators and max_depth. The best number of estimators is 100 and the best max depth is 3. The RMSE for this is 462 which is a lot less than before meaning that the model has improved due to these changes made. 
+
+## Fairness Analysis
+For the fairness analysis, I decided to choose high protein and low protein as my two groups. I decided to split them based on their mean because it allows for better interpretability and can help identify outliers in the data. I chose to evaluate the RMSE for both groups because it is a standardized metric that makes it easy to interpret the results as well as highlights the differences between the model's performance in both groups. I chose the difference in RMSE for my test statistic because it helps us understand the model's performance for both groups.
+
+Null Hypothesis: The model is fair and its RMSE for high and low protein are around the same.
+Alternative Hypothesis: The model is unfair and its RMSE for high and low protein are different.
+Test Statistic: Difference in RMSE between high protein and low protein
+Significance Level: 0.05
+
+Outcome:
+The observed difference in RMSE was 404 which tells us that the model has a higher RMSE score for the high protein group than the low protein group and a p-value of 0.0 and thus, we reject the null hypothesis.
