@@ -15,7 +15,98 @@ Recipes:
 'description' - User-provided description
 
 ## Data Cleaning and Exploratory Data Analysis
-To clean the dataset, I first merged the two datasets to make working with the data easier and then replaced the 0 values in ratings with np.nan. This is because if calculating with 0s, they will seem like lower ratings even though in reality they are missing values. This helps us differentiate between actual ratings vs missing values. Then, I added a column with average ratings to understand the mean rating for each recipe. After that, I split nutrition into its individual values since we will utilize protein and calories for this project. Then, I kept only the relevant columns from this dataset. I also realized that some protein values were extreme (ex. 4000 grams) and I wanted to keep a threshold for the amount so I removed all rows that had a protein content of greater than 500 grams. 
+To clean the dataset, I first merged the two datasets to make working with the data easier and then replaced the 0 values in ratings with np.nan. This is because if calculating with 0s, they will seem like lower ratings even though in reality they are missing values. This helps us differentiate between actual ratings vs missing values. Then, I added a column with average ratings to understand the mean rating for each recipe. After that, I split nutrition into its individual values since we will utilize protein and calories for this project. Then, I kept only the relevant columns from this dataset. I also realized that some protein values were extreme (ex. 4000 grams) and I wanted to keep a threshold for the amount so I removed all rows that had a protein content of greater than 500 grams.
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>minutes</th>
+      <th>nutrition</th>
+      <th>description</th>
+      <th>rating</th>
+      <th>average_ratings</th>
+      <th>calories</th>
+      <th>protein</th>
+      <th>protein_range</th>
+      <th>rating_missing</th>
+      <th>protein_proportion</th>
+      <th>ratings_missing</th>
+      <th>protein_log</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>40</td>
+      <td>[138.4, 10.0, 50.0, 3.0, 3.0, 19.0, 6.0]</td>
+      <td>these are the most; chocolatey, moist, rich, dense, fudgy, delicious brownies that you'll ever make.....sereiously! there's no doubt that these will be your fav brownies ever for you can add things to them or make them plain.....either way they're pure heaven!</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>138.4</td>
+      <td>3.0</td>
+      <td>0-10</td>
+      <td>0</td>
+      <td>0.09</td>
+      <td>0</td>
+      <td>1.39</td>
+    </tr>
+    <tr>
+      <td>45</td>
+      <td>[595.1, 46.0, 211.0, 22.0, 13.0, 51.0, 26.0]</td>
+      <td>this is the recipe that we use at my school cafeteria for chocolate chip cookies. they must be the best chocolate chip cookies i have ever had! if you don't have margarine or don't like it, then just use butter (softened) instead.</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>595.1</td>
+      <td>13.0</td>
+      <td>10-50</td>
+      <td>0</td>
+      <td>0.09</td>
+      <td>0</td>
+      <td>2.64</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>[194.8, 20.0, 6.0, 32.0, 22.0, 36.0, 3.0]</td>
+      <td>since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don't think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell's soup. but i think mine is better since i don't like cream of mushroom soup.submitted to "zaar" on may 28th,2008</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>194.8</td>
+      <td>22.0</td>
+      <td>10-50</td>
+      <td>0</td>
+      <td>0.45</td>
+      <td>0</td>
+      <td>3.14</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>[194.8, 20.0, 6.0, 32.0, 22.0, 36.0, 3.0]</td>
+      <td>since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don't think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell's soup. but i think mine is better since i don't like cream of mushroom soup.submitted to "zaar" on may 28th,2008</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>194.8</td>
+      <td>22.0</td>
+      <td>10-50</td>
+      <td>0</td>
+      <td>0.45</td>
+      <td>0</td>
+      <td>3.14</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>[194.8, 20.0, 6.0, 32.0, 22.0, 36.0, 3.0]</td>
+      <td>since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don't think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell's soup. but i think mine is better since i don't like cream of mushroom soup.submitted to "zaar" on may 28th,2008</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>194.8</td>
+      <td>22.0</td>
+      <td>10-50</td>
+      <td>0</td>
+      <td>0.45</td>
+      <td>0</td>
+      <td>3.14</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Univariate Analysis
 <iframe src="assets/protein_uni.html" width="100%" height="600px"></iframe>
