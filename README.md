@@ -149,10 +149,10 @@ For my final model, I decided to add rating and protein content on top of the pr
 ## Fairness Analysis
 For the fairness analysis, I decided to choose high protein and low protein as my two groups. I decided to split them based on their mean because it allows for better interpretability and can help identify outliers in the data. I chose to evaluate the RMSE for both groups because it is a standardized metric that makes it easy to interpret the results as well as highlights the differences between the model's performance in both groups. I chose the difference in RMSE for my test statistic because it helps us understand the model's performance for both groups.
 
-Null Hypothesis: The model is fair and its RMSE for high and low protein are around the same.
-Alternative Hypothesis: The model is unfair and its RMSE for high and low protein are different.
-Test Statistic: Difference in RMSE between high protein and low protein
-Significance Level: 0.05
+Null Hypothesis: The model is fair and its RMSE for high and low protein are around the same.  
+Alternative Hypothesis: The model is unfair and its RMSE for high and low protein are different.  
+Test Statistic: Difference in RMSE between high protein and low protein  
+Significance Level: 0.05  
 
 Outcome:
 The observed difference in RMSE was 404 which tells us that the model has a higher RMSE score for the high protein group than the low protein group and a p-value of 0.0 and thus, we reject the null hypothesis.
