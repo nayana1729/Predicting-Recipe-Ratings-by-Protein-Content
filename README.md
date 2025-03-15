@@ -18,17 +18,17 @@ Recipes:
 To clean the dataset, I first merged the two datasets to make working with the data easier and then replaced the 0 values in ratings with np.nan. This is because if calculating with 0s, they will seem like lower ratings even though in reality they are missing values. This helps us differentiate between actual ratings vs missing values. Then, I added a column with average ratings to understand the mean rating for each recipe. After that, I split nutrition into its individual values since we will utilize protein and calories for this project. Then, I kept only the relevant columns from this dataset. I also realized that some protein values were extreme (ex. 4000 grams) and I wanted to keep a threshold for the amount so I removed all rows that had a protein content of greater than 500 grams. 
 
 ### Univariate Analysis
-<iframe src="Protein-Content-and-Recipe-Rating-Analysis/assets/protein_uni.html" width="100%" height="600px"></iframe>
+<iframe src="assets/protein_uni.html" width="100%" height="600px"></iframe>
 
 From this histogram, we can observe that the protein content is positively skewed with a right-tail. This tells us that the majority of the recipes have a moderate to low amount of protein content.
 
 ### Bivariate Analysis
-<iframe src="Protein-Content-and-Recipe-Rating-Analysis/assets/protein_ratings_box_plot.html" width="100%" height="600px"></iframe>
+<iframe src="assets/protein_ratings_box_plot.html" width="100%" height="600px"></iframe>
 
 From this box plot, we can observe that a higher protein content means a higher rating. We can also see that there are many outliers, particularly for ratings 4 and 5. 
 
 ### Pivot Table
-<iframe src="Protein-Content-and-Recipe-Rating-Analysis/assets/pivot_table.html" width="100%" height="500px"></iframe>
+<iframe src="assets/pivot_table.html" width="100%" height="500px"></iframe>
 
 I wanted to explore protein content and rating further by creating a range for protein and observing the average rating for those ranges. Interestingly, these averages are incredibly different from the plot relationship as the highest rating occurs for the protein range 400-500, however, the second highest is for the protein range 0-10. This shows that there may be other factors at play.
 
