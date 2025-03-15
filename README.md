@@ -9,9 +9,7 @@ Ratings:
 Recipes:
 
 'minutes' - Minutes taken to prepare recipe  
-
 'nutrition - Nutrition information in the form [calories (#), total fat (PDV), sugar (PDV), sodium (PDV), protein (PDV), saturated fat (PDV), carbohydrates (PDV)]; PDV stands for “percentage of daily value”  
-
 'description' - User-provided description
 
 ## Data Cleaning and Exploratory Data Analysis
